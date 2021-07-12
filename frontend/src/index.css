@@ -1,1 +1,22 @@
+*{
+  font-family: 'Raleway', sans-serif;
+ 
+}
+
+* a{
+ text-decoration: none;
+}
+
+
+
+main {
+  min-height: 80vh;
+  
+}
+
+/* Navigation */
+
+.nav-link-selected {
+  color: aqua;
+}
 
