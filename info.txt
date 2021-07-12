@@ -1,0 +1,9 @@
+Password protection:
+
+npm i bcryptjs
+
+import bcrypt from bcryptjs
+
+Sync way:
+
+Password: bcrypt.hashSync('123456', 10)
