@@ -7,3 +7,13 @@ import bcrypt from bcryptjs
 Sync way:
 
 Password: bcrypt.hashSync('123456', 10)
+
+
+
+Redux:
+
+npm i:
+redux
+react-redux
+redux-thunk - let to make async requests in action creators. Let to add function into the function
+redux-devtools-extension

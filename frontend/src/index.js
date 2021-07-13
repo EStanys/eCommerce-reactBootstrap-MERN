@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import store from './store'
 import { BrowserRouter } from 'react-router-dom';
 import './bootstrap.min.css';
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { faShoppingCart, faUser, faStar as fasFaStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser, faStar as fasFaStar, faStarHalfAlt, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { faStar as farFaStar } from '@fortawesome/free-regular-svg-icons';
 
-library.add(faShoppingCart, faUser, fasFaStar, farFaStar, faStarHalfAlt);
+library.add(faShoppingCart, faUser, fasFaStar, farFaStar, faStarHalfAlt, faTrash);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={ store }>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
