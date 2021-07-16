@@ -4,3 +4,37 @@ GET http://localhost:5000/api/products
 
 ### get one product
 GET http://localhost:5000/api/products/weded
+
+### Create user
+POST http://localhost:5000/api/users 
+Content-Type: application/json
+
+{
+"name": "Edvinas Stanys",
+"email": "edvinas@example.com",
+"password": "1234"
+}
+
+### Auth user and get token
+POST http://localhost:5000/api/users/login 
+Content-Type: application/json
+
+{
+"email": "jane@example.com",
+"password": "123456"
+}
+
+
+### protected user profile router
+
+GET http://localhost:5000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZWMyZDZjZmJlMGQxNmViZTllMzEzNyIsImlhdCI6MTYyNjI0MjgxNiwiZXhwIjoxNjI4ODM0ODE2fQ.28alaSCzcjEyS0636aUR-vBlNfChS81Lpen8uASPgbg
+
+### edit user
+
+PUT http://localhost:5000/api/users/profile
+Content-Type: application/json
+
+{
+"email": "jan@example.com"
+}

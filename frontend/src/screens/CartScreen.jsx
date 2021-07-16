@@ -16,8 +16,6 @@ const CartScreen = ({ match, location, history }) => {
 
   const cart = useSelector(state => state.cart)
 
-  console.log(cart);
-
   const { cartItems } = cart
 
   useEffect(() => {

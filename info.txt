@@ -1,12 +1,52 @@
 Password protection:
 
+Authentication:
+
 npm i bcryptjs
 
 import bcrypt from bcryptjs
 
 Sync way:
-
+creating user:
 Password: bcrypt.hashSync('123456', 10)
+
+method to compare password to db encrypted password:
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password)
+}
+
+calling method:
+if(user && (await user.matchPassword(password))) { res.json{...}..
+
+
+Authorization (JWT)
+
+npm install jsonwebtoken (root folder)
+
+inbackend:
+
+-create utils folder / generateToken.js
+-in generateToken.js:
+import jwt from 'jsonwebtoken'
+
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d'})
+}
+
+export default generateToken
+
+-in userController:
+import generateToken from '../utils/generateToken.js';
+-if user is authenticated, we're creating and sending token with data:
+if(user && (await user.matchPassword(password))) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id)
+    })
+  }
 
 
 

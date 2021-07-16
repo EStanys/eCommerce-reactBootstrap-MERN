@@ -27,10 +27,12 @@ const userSchema = mongoose.Schema(
   }
 )
 
+// check if entered password is equal to encrypted password
 userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password)
-}
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
+// before save,  encrypt the password
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next()

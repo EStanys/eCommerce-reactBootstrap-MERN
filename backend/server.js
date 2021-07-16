@@ -5,6 +5,8 @@ import connectDB from './config/db.js'
 
 
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 
 dotenv.config()
 
@@ -12,11 +14,15 @@ connectDB()
 
 const app = express()
 
+app.use(express.json()) // accepts json in the request body
+
 app.get('/', (req, res) => {
   res.send("api is running!!")
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes);
 
 // will use err handling if req pages isn't valid(doesn't exist in above) 
 app.use(notFound)
