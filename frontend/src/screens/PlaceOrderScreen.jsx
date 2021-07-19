@@ -10,6 +10,7 @@ const PlaceOrderScreen = ({history}) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch()
 
+
   // Calculate prices
   cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   cart.shippingPrice = cart.itemsPrice > 100 ? Number(0).toFixed(2) : Number(5).toFixed(2);
@@ -28,16 +29,18 @@ const PlaceOrderScreen = ({history}) => {
   },[history, success])
 
   const placeOrderHandler = (e) => {
-    e.target.preventDefault()
-    dispatch(createOrder({
-      orderItems: cart.orderItems,
-      shippingAddress: cart.shippingAddress,
-      paymentMethod: cart.paymentMethod,
-      itemsPrice: cart.itemsPrice,
-      shippingPrice: cart.shippingPrice,
-      taxPrice: cart.taxPrice,
-      totalPrice: cart.totalPrice
-    }))
+    e.preventDefault();
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
 
   }
 
