@@ -8,10 +8,10 @@ import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { faShoppingCart, faUser, faStar as fasFaStar, faStarHalfAlt, faTrash, faTimes} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser, faStar as fasFaStar, faStarHalfAlt, faTrash, faTimes, faCheck, faEdit, faPlus} from '@fortawesome/free-solid-svg-icons';
 import { faStar as farFaStar } from '@fortawesome/free-regular-svg-icons';
 
-library.add(faShoppingCart, faUser, fasFaStar, farFaStar, faStarHalfAlt, faTrash, faTimes);
+library.add(faShoppingCart, faUser, fasFaStar, farFaStar, faStarHalfAlt, faTrash, faTimes, faCheck, faEdit, faPlus);
 
 ReactDOM.render(
   <Provider store={ store }>

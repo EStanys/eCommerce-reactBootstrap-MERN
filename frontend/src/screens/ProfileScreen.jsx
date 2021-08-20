@@ -23,8 +23,6 @@ const ProfileScreen = ({ location, history }) => {
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
-  console.log('details', userDetails);
-
    const userLogin = useSelector((state) => state.userLogin);
    const { userInfo } = userLogin;
 

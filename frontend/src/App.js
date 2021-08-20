@@ -12,13 +12,17 @@ import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import UsersListScreen from './screens/UsersListScreen';
+import UserEditScreen from './screens/UserEditScreen';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
 
 
 const App = () => {
   return (
     <>
       <Header></Header>
-      <main className='py-3bv '>
+      <main className='py-3 '>
         <Container>
           <Route path='/order/:id' component={OrderScreen}></Route>
           <Route path='/placeorder' component={PlaceOrderScreen}></Route>
@@ -29,6 +33,10 @@ const App = () => {
           <Route path='/profile' component={ProfileScreen}></Route>
           <Route path='/product/:id' component={ProductScreen}></Route>
           <Route path='/cart/:id?' component={CartScreen}></Route>
+          <Route path='/admin/userlist' component={UsersListScreen}></Route>
+          <Route path='/admin/user/:id/edit' component={UserEditScreen}></Route>
+          <Route path='/admin/productlist' component={ProductListScreen}></Route>
+          <Route path='/admin/product/:id/edit' component={ProductEditScreen}></Route>
           <Route path='/' component={HomeScreen} exact></Route>
         </Container>
       </main>
